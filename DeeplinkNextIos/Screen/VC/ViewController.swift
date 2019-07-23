@@ -1,22 +1,17 @@
-//
-//  ViewController.swift
-//  DeeplinkNextIos
-//
-//  Created by Saran Jantara-amornporn on 22/7/2562 BE.
-//  Copyright © 2562 Saran Jantara-amornporn. All rights reserved.
-//
+//        ktbnextuat://next.ktb.co.th/payment?orderid=0001&returnUrl=www.google.co.th
 
 import UIKit
 
 protocol ViewControllerProtocol {
-    
+    func getToken(token: String)
+    func goToNEXTuat()
 }
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var button:UIButton!
     lazy var presenter = ViewControllerPresenter(self)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,18 +19,25 @@ class ViewController: UIViewController {
     
     
     @IBAction func onClickDeeplink() {
-//        let urlString = "ktbnextuat://payment?orderid=0001&returnUrl=www.google.co.th"
-//        guard let url = URL(string: urlString) else {
-//            return
-//        }
-//        UIApplication.shared.open(url, options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly : false]) { (finish) in
-//
-//        }
-        
         presenter.callOauthService()
     }
 }
 
 extension ViewController: ViewControllerProtocol {
     
+    func getToken(token: String) {
+        presenter.callPaymentService(token: token)
+    }
+    
+    func goToNEXTuat() {
+        let linkToAppStore = "ktbnextuat://"
+        
+        if let url = URL(string: linkToAppStore), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly : false], completionHandler: {(success: Bool) in
+                if success {
+                    
+                    print("\(url) launced successfully")
+                }})
+        }
+    }
 }

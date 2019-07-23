@@ -8,6 +8,7 @@ target 'DeeplinkNextIos' do
   # Pods for DeeplinkNextIos
   pod 'Alamofire', '~> 4.7'
   pod 'ObjectMapper', '~> 3.1'
+  pod 'CryptoSwift', '0.7.2'
 
   target 'DeeplinkNextIosTests' do
     inherit! :search_paths
