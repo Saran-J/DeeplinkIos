@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		116F3092D8C5974311109EEC /* Pods_DeeplinkNextIosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819D14EC56CB5DA476E1090E /* Pods_DeeplinkNextIosUITests.framework */; };
 		8A97173CA0C3660672DFF1EB /* Pods_DeeplinkNextIosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40341313796C7D4F3D74333 /* Pods_DeeplinkNextIosTests.framework */; };
+		9CA3B47F22E6C52B00F10C3F /* PaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3B47E22E6C52B00F10C3F /* PaymentResponse.swift */; };
+		9CA3B48422E6C69700F10C3F /* ViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3B48322E6C69700F10C3F /* ViewControllerPresenter.swift */; };
+		9CE26F3222E6C10700135198 /* OauthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE26F3122E6C10700135198 /* OauthResponse.swift */; };
 		EE92F4D92D1180C3CC2069A8 /* Pods_DeeplinkNextIos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3053299D0FBD79D1B811C408 /* Pods_DeeplinkNextIos.framework */; };
 		FE42B8FE22E5941100759F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE42B8FD22E5941100759F61 /* AppDelegate.swift */; };
 		FE42B90022E5941100759F61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE42B8FF22E5941100759F61 /* ViewController.swift */; };
@@ -42,6 +45,9 @@
 		557BFDE71C3D8CB5F2712049 /* Pods-DeeplinkNextIos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeeplinkNextIos.release.xcconfig"; path = "Target Support Files/Pods-DeeplinkNextIos/Pods-DeeplinkNextIos.release.xcconfig"; sourceTree = "<group>"; };
 		5EED65F9801C6E3FC34B3900 /* Pods-DeeplinkNextIosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeeplinkNextIosTests.debug.xcconfig"; path = "Target Support Files/Pods-DeeplinkNextIosTests/Pods-DeeplinkNextIosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		819D14EC56CB5DA476E1090E /* Pods_DeeplinkNextIosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeeplinkNextIosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CA3B47E22E6C52B00F10C3F /* PaymentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResponse.swift; sourceTree = "<group>"; };
+		9CA3B48322E6C69700F10C3F /* ViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenter.swift; sourceTree = "<group>"; };
+		9CE26F3122E6C10700135198 /* OauthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthResponse.swift; sourceTree = "<group>"; };
 		BECB226CDB2C6E1EDEDD6564 /* Pods-DeeplinkNextIosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeeplinkNextIosTests.release.xcconfig"; path = "Target Support Files/Pods-DeeplinkNextIosTests/Pods-DeeplinkNextIosTests.release.xcconfig"; sourceTree = "<group>"; };
 		F40341313796C7D4F3D74333 /* Pods_DeeplinkNextIosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeeplinkNextIosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DE092960DB920A9300C944 /* Pods-DeeplinkNextIosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeeplinkNextIosUITests.debug.xcconfig"; path = "Target Support Files/Pods-DeeplinkNextIosUITests/Pods-DeeplinkNextIosUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +105,57 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9CA3B47D22E6C51F00F10C3F /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				9CA3B47E22E6C52B00F10C3F /* PaymentResponse.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		9CA3B48022E6C5DF00F10C3F /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				FE42B90122E5941100759F61 /* Main.storyboard */,
+				9CA3B48222E6C60500F10C3F /* VC */,
+				9CA3B48122E6C5ED00F10C3F /* Presenter */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		9CA3B48122E6C5ED00F10C3F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9CA3B48322E6C69700F10C3F /* ViewControllerPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9CA3B48222E6C60500F10C3F /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				FE42B8FF22E5941100759F61 /* ViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		9CE26F2F22E6C0C900135198 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				9CA3B47D22E6C51F00F10C3F /* Payment */,
+				9CE26F3022E6C0DF00135198 /* Oauth */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		9CE26F3022E6C0DF00135198 /* Oauth */ = {
+			isa = PBXGroup;
+			children = (
+				9CE26F3122E6C10700135198 /* OauthResponse.swift */,
+			);
+			path = Oauth;
+			sourceTree = "<group>";
+		};
 		AA2448A775A93BC7B23433BD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +166,6 @@
 				F4DE092960DB920A9300C944 /* Pods-DeeplinkNextIosUITests.debug.xcconfig */,
 				4DBD14998DE037380F93C7D3 /* Pods-DeeplinkNextIosUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -138,9 +194,9 @@
 		FE42B8FC22E5941100759F61 /* DeeplinkNextIos */ = {
 			isa = PBXGroup;
 			children = (
+				9CA3B48022E6C5DF00F10C3F /* Screen */,
+				9CE26F2F22E6C0C900135198 /* DataLayer */,
 				FE42B8FD22E5941100759F61 /* AppDelegate.swift */,
-				FE42B8FF22E5941100759F61 /* ViewController.swift */,
-				FE42B90122E5941100759F61 /* Main.storyboard */,
 				FE42B90422E5941300759F61 /* Assets.xcassets */,
 				FE42B90622E5941300759F61 /* LaunchScreen.storyboard */,
 				FE42B90922E5941300759F61 /* Info.plist */,
@@ -388,6 +444,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE42B90022E5941100759F61 /* ViewController.swift in Sources */,
+				9CA3B47F22E6C52B00F10C3F /* PaymentResponse.swift in Sources */,
+				9CE26F3222E6C10700135198 /* OauthResponse.swift in Sources */,
+				9CA3B48422E6C69700F10C3F /* ViewControllerPresenter.swift in Sources */,
 				FE42B8FE22E5941100759F61 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,8 +624,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T2CXQAZL4J;
+				DEVELOPMENT_TEAM = 98SVP6YBGF;
 				INFOPLIST_FILE = DeeplinkNextIos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -584,8 +644,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T2CXQAZL4J;
+				DEVELOPMENT_TEAM = 98SVP6YBGF;
 				INFOPLIST_FILE = DeeplinkNextIos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

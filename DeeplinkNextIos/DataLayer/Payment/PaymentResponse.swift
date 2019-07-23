@@ -1,0 +1,19 @@
+import Foundation
+import ObjectMapper
+
+class PaymentResponse: Mappable {
+    
+    var deeplinkUrl: String?
+    var expiryAt: Int64?
+    var expiryIn: Int?
+    var transactionId: String?
+    
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
+        deeplinkUrl <- map["deeplinkUrl"]
+        expiryAt <- map["expiryAt"]
+        expiryIn <- map["expiryIn"]
+        transactionId <- map["transactionId"]
+    }
+}
