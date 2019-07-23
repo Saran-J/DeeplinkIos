@@ -9,10 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var button:UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @IBAction func onClickDeeplink() {
+        let urlString = "ktbnextuat://payment?orderid=0001&returnUrl=www.google.co.th"
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly : false]) { (finish) in
+            
+        }
+        
     }
 
 
