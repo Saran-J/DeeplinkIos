@@ -5,7 +5,7 @@ import CryptoSwift
 
 protocol ViewControllerpresenterprotocol {
     func callOauthService()
-    func callPaymentService(token: String)
+    func callPaymentService(token: String, ref1: String)
 }
 
 class ViewControllerPresenter {
@@ -40,8 +40,8 @@ extension ViewControllerPresenter: ViewControllerpresenterprotocol {
         }
     }
     
-    func callPaymentService(token: String) {
-        let partnerToken = encryptPartnerToken()
+    func callPaymentService(token: String, ref1: String = "08903331714") {
+        let partnerToken = encryptPartnerToken(ref1: ref1)
         
         print("partnerToken", partnerToken)
         
@@ -49,7 +49,7 @@ extension ViewControllerPresenter: ViewControllerpresenterprotocol {
         
         let header: [String: String] = [
             "Content-Type": "application/json",
-            "X-Request-ID": "D7BEF5E871C3FD8EE5EDB85998566-14F8CAB9EB663E4538552D4F9F82D",
+            "X-Request-ID": "D7BEF5E871C3FD8EE5EDB85998566",
             "Authorization": "Bearer " + token
         ]
         
@@ -58,7 +58,7 @@ extension ViewControllerPresenter: ViewControllerpresenterprotocol {
             "extraData": "",
             "fee": "0",
             "partnerToken": partnerToken,
-            "reference1": "08903331714",
+            "reference1": ref1,
             "reference2": "1685562684887441",
             "reference3": "",
             "returnUrl": "{Partner.App.URI.Scheme}://payment/callback",
@@ -66,22 +66,22 @@ extension ViewControllerPresenter: ViewControllerpresenterprotocol {
             "shopNameTh": ""
         ]
         
-        Alamofire.request(url, method: .post, parameters: parameter, headers: header).responseJSON { (resp) in
+        Alamofire.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: header).responseJSON { (resp) in
             print(resp.result.value)
 //            guard let modelMapper = Mapper<PaymentResponse>().map(JSONObject: resp.result.value) else { return }
             self.vc?.goToNEXTuat()
         }
     }
     
-    func encryptPartnerToken() -> String {
+    func encryptPartnerToken(ref1: String) -> String {
         var result = ""
         do {
             var key = "6EC77FB50566B4DB6EC77FB50566B4DB"
             var iv = "A4628E5F5CC98BF5"
-            let aes = try AES(key: Array(key.utf8), iv: Array(iv.utf8) , blockMode: .CBC, padding: .pkcs5)
+            let aes = try AES(key: Array(key.utf8), iv: Array(iv.utf8) , blockMode: .CBC)
             let unixTime = Int64(Date().timeIntervalSince1970)
             let partnerObject: [String: Any] = [
-                "reference1" : "abcdefg",
+                "reference1" : ref1,
                 "payment_init_time" : unixTime
             ]
             
